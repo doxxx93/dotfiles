@@ -1,0 +1,34 @@
+FORMULAE=(
+  asdf
+  eza
+  ranger
+  chezmoi
+  fzf
+  gh
+  htop
+  httpie
+  neovim
+  nmap
+  highlight
+  lazygit
+  git-number
+  atuin
+  bat
+  git-delta
+  duf
+  dust
+  gping
+  walk
+  orbstack
+  tldr
+  awscli
+  mas
+  ripgrep
+  fx
+  rectangle
+  thefuck
+)
+
+CASKS=(
+  
+  
