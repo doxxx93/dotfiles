@@ -36,7 +36,7 @@ CASKS=(
   google-drive
   discord
   drawio
-  font-hack
+  font-hack-nerd-font
   espanso
   httpie
   iterm2
