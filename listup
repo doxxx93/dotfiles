@@ -30,5 +30,28 @@ FORMULAE=(
 )
 
 CASKS=(
-  
+  alt-tab
+  aldente
+  google-chrome
+  google-drive
+  discord
+  drawio
+  font-hack
+  espanso
+  httpie
+  iterm2
+  gureumkim
+  notion
+  slack
+  obsidian
+  orbstack
+  jetbrains-toolbox
+  karabiner-elements
+  rectangle
+  zoom
+  figma
+)
+
+# kakaotalk
+mas install 869223134
   
