@@ -1,0 +1,92 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+FORMULAE=(
+  asdf
+  eza
+  ranger
+  chezmoi
+  fzf
+  gh
+  htop
+  httpie
+  neovim
+  nmap
+  highlight
+  lazygit
+  git-number
+  atuin
+  bat
+  git-delta
+  duf
+  dust
+  gping
+  walk
+  orbstack
+  tldr
+  awscli
+  mas
+  ripgrep
+  fx
+  rectangle
+  thefuck
+)
+
+CASKS=(
+  alt-tab
+  aldente
+  google-chrome
+  google-drive
+  discord
+  drawio
+  font-hack-nerd-font
+  espanso
+  httpie
+  iterm2
+  gureumkim
+  notion
+  slack
+  obsidian
+  orbstack
+  jetbrains-toolbox
+  karabiner-elements
+  rectangle
+  zoom
+  figma
+)
+
+# If Homebrew is not installed on the system, it will be installed here
+if test ! $(which brew); then
+   printf '\n\n\e[33mHomebrew not found. \e[0mInstalling Homebrew...'
+   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install.sh)"
+else
+  printf '\n\n\e[0mHomebrew found. Continuing...'
+fi
+
+# If Oh-my-zsh is not installed on the system, it will be installed here
+if [ ! -d ~/.oh-my-zsh ]; then
+  printf '\n\n\e[33mOh-my-zsh not found. \e[0mInstalling Oh-my-zsh...'
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+else
+  printf '\n\n\e[0mOh-my-zsh found. Continuing...'
+fi
+
+# Update homebrew packages
+printf '\nInitiating Homebrew update...\n'
+brew tap homebrew/cask-fonts
+brew tap daipeihust/tap
+brew update
+
+printf '\nInstalling packages...\n'
+brew list --formula ${PACKAGES[@]} || brew install ${PACKAGES[@]}
+
+printf '\n\nInstalling cask apps...\n'
+brew list --cask ${CASKS[@]} || brew install --cask ${CASKS[@]}
+
+printf '\n\nRemoving out of date packages...\n'
+brew cleanup
+
+# kakaotalk
+mas install 869223134
+
+{{ end -}}
