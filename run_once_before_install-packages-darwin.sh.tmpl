@@ -1,7 +1,7 @@
 {{- if eq .chezmoi.os "darwin" -}}
 #!/bin/bash
 
-FORMULAE=(
+PACKAGES=(
   asdf
   eza
   ranger
@@ -30,16 +30,22 @@ FORMULAE=(
   fx
   rectangle
   thefuck
+  zsh-fast-syntax-highlighting
+  zsh-autosuggestions
 )
 
 CASKS=(
   alt-tab
+  raycast
+  realforce
+  warp
   aldente
   google-chrome
   google-drive
   discord
   drawio
   font-hack-nerd-font
+  font-d2coding-nerd-font
   espanso
   httpie
   iterm2
