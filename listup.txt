@@ -4,6 +4,7 @@ FORMULAE=(
   ranger
   chezmoi
   fzf
+  lua
   gh
   htop
   httpie
@@ -30,26 +31,35 @@ FORMULAE=(
 )
 
 CASKS=(
-  alt-tab
   aldente
-  google-chrome
-  google-drive
-  discord
-  drawio
   font-hack-nerd-font
-  espanso
-  httpie
-  iterm2
-  gureumkim
-  notion
-  slack
-  obsidian
-  orbstack
-  jetbrains-toolbox
   karabiner-elements
-  rectangle
-  zoom
+  slack
+  alt-tab
+  github
+  notion
+  visual-studio-code
+  discord
+  google-chrome
+  obsidian
+  warp
+  drawio
+  google-drive
+  orbstack
+  wireshark
+  espanso
+  gureumkim
+  raycast
+  xmind
   figma
+  httpie
+  realforce
+  zoom
+  font-caskaydia-cove-nerd-font	iterm2
+  rectangle
+  font-d2coding-nerd-font
+  jetbrains-toolbox
+  shottr
 )
 
 # kakaotalk
