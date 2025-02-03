@@ -86,16 +86,16 @@ echo "Starting Homebrew installation..."
 
 # Install Formulae
 echo "Installing Formulae..."
-for formula in ""; do
-    echo "Installing ..."
-    brew install ""
+for formula in "${FORMULAE[@]}"; do
+    echo "Installing $formula..."
+    brew install "$formula"
 done
 
 # Install Casks
 echo "Installing Casks..."
-for cask in ""; do
-    echo "Installing ..."
-    brew install --cask ""
+for cask in "${CASKS[@]}"; do
+    echo "Installing $cask..."
+    brew install --cask "$cask"
 done
 
 echo "Installation completed!"
