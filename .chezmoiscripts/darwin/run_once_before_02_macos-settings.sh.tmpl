@@ -1,0 +1,10 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+printf '\n\e[34mApplying macOS settings...\e[0m\n'
+
+sh {{ .chezmoi.sourceDir }}/dot_macos
+
+printf '\n\e[32mmacOS settings applied!\e[0m\n'
+
+{{ end -}}

@@ -1,0 +1,27 @@
+{{- if eq .chezmoi.os "darwin" -}}
+#!/bin/bash
+
+# Install Homebrew
+if ! command -v brew &> /dev/null; then
+    printf '\n\e[33mHomebrew not found.\e[0m Installing Homebrew...\n'
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    eval "$(/opt/homebrew/bin/brew shellenv)"
+else
+    printf '\n\e[32mHomebrew found.\e[0m\n'
+fi
+
+# Install Oh-my-zsh
+if [ ! -d ~/.oh-my-zsh ]; then
+    printf '\n\e[33mOh-my-zsh not found.\e[0m Installing Oh-my-zsh...\n'
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended
+else
+    printf '\n\e[32mOh-my-zsh found.\e[0m\n'
+fi
+
+# Install packages via Brewfile
+printf '\n\e[34mInstalling packages from Brewfile...\e[0m\n'
+brew bundle --file={{ .chezmoi.sourceDir }}/Brewfile
+
+printf '\n\e[32mPackage installation complete!\e[0m\n'
+
+{{ end -}}

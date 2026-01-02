@@ -5,14 +5,11 @@ macOS dotfiles managed with [chezmoi](https://chezmoi.io/)
 ## Quick Start
 
 ```bash
-# 1. Install chezmoi and apply dotfiles
+# 1. Install chezmoi and apply dotfiles (auto-runs brew bundle & .macos)
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply doxxx93
 
 # 2. Install CLI tools via mise
 mise install
-
-# 3. Apply macOS system preferences
-~/.macos
 ```
 
 ## What's Included
@@ -31,8 +28,9 @@ mise install
 - `zed/settings.json` - Zed editor settings
 
 ### macOS Setup
-- `run_once_before_install-packages-darwin.sh.tmpl` - Homebrew formulae and casks
+- `Brewfile` - Homebrew formulae and casks
 - `.macos` - System preferences (Dock, Finder, Keyboard)
+- `.chezmoiscripts/darwin/` - Auto-run scripts on init
 
 ## Manual Operations
 
@@ -51,4 +49,7 @@ chezmoi apply
 
 # Update from remote
 chezmoi update
+
+# Re-run Brewfile
+brew bundle --file=~/.local/share/chezmoi/Brewfile
 ```
