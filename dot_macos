@@ -1,0 +1,58 @@
+#!/bin/bash
+
+# Close System Preferences to prevent conflicts
+osascript -e 'tell application "System Preferences" to quit' 2>/dev/null
+
+###############################################################################
+# Dock                                                                        #
+###############################################################################
+
+# Auto-hide Dock
+defaults write com.apple.dock autohide -bool true
+
+# Set Dock icon size
+defaults write com.apple.dock tilesize -int 16
+
+# Position Dock on right
+defaults write com.apple.dock orientation -string "right"
+
+###############################################################################
+# Finder                                                                      #
+###############################################################################
+
+# Show hidden files
+defaults write com.apple.finder AppleShowAllFiles -bool true
+
+# Show path bar
+defaults write com.apple.finder ShowPathbar -bool true
+
+# Show file extensions
+defaults write NSGlobalDomain AppleShowAllExtensions -bool true
+
+###############################################################################
+# Keyboard                                                                    #
+###############################################################################
+
+# Fast key repeat
+defaults write NSGlobalDomain KeyRepeat -int 2
+defaults write NSGlobalDomain InitialKeyRepeat -int 15
+
+###############################################################################
+# Screenshot                                                                  #
+###############################################################################
+
+# Save screenshots to Desktop
+defaults write com.apple.screencapture location -string "${HOME}/Desktop"
+
+# Save screenshots as PNG
+defaults write com.apple.screencapture type -string "png"
+
+###############################################################################
+# Restart affected applications                                               #
+###############################################################################
+
+echo "Restarting affected apps..."
+killall Dock
+killall Finder
+
+echo "Done! Some changes may require logout/restart."
