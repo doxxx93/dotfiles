@@ -18,3 +18,10 @@
 [credential "https://gist.github.com"]
     helper =
     helper = !gh auth git-credential
+
+# To use different git config for work directory:
+# 1. Create ~/.gitconfig-work with [user] name and email
+# 2. Add below to local ~/.gitconfig (not this dotfile)
+#
+# [includeIf "gitdir:~/work/"]
+#     path = ~/.gitconfig-work
