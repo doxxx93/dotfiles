@@ -5,8 +5,14 @@ macOS dotfiles managed with [chezmoi](https://chezmoi.io/)
 ## Quick Start
 
 ```bash
-# Install chezmoi and apply dotfiles
+# 1. Install chezmoi and apply dotfiles
 sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply doxxx93
+
+# 2. Install CLI tools via mise
+mise install
+
+# 3. Apply macOS system preferences
+~/.macos
 ```
 
 ## What's Included
@@ -15,14 +21,18 @@ sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply doxxx93
 - `.zshrc` - Oh-my-zsh configuration with plugins (mise, fzf, syntax-highlighting, autosuggestions)
 
 ### Git
-- `.gitconfig` - Main git configuration
-- `.gitconfig-doxxx` - Personal account configuration (conditional include)
+- `.gitconfig` - Git configuration (doxxx93 default)
 
 ### Tools
-- `mise/config.toml` - Development tools (go, node, kubectl, terraform, etc.)
+- `mise/config.toml` - CLI development tools (go, node, kubectl, terraform, etc.)
+
+### Apps
+- `karabiner/karabiner.json` - Keyboard remapping (caps_lock → f19)
+- `zed/settings.json` - Zed editor settings
 
 ### macOS Setup
-- `run_once_before_install-packages-darwin.sh.tmpl` - Homebrew packages and casks installation
+- `run_once_before_install-packages-darwin.sh.tmpl` - Homebrew formulae and casks
+- `.macos` - System preferences (Dock, Finder, Keyboard)
 
 ## Manual Operations
 
