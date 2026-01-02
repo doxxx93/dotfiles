@@ -1,0 +1,57 @@
+# Oh My Zsh 설정
+export ZSH="$HOME/.oh-my-zsh"
+ZSH_THEME="miloshadzic"
+plugins=(git)
+source $ZSH/oh-my-zsh.sh
+
+# PATH 설정
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
+# 환경변수
+export LC_ALL=en_US.UTF-8
+export GPG_TTY=$(tty)
+
+# 툴 활성화 (한 번만!)
+eval "$(mise activate zsh)"
+eval "$(gh completion -s zsh)"
+eval "$(gh copilot alias -- zsh)"
+
+# 플러그인
+source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
+source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+# 자동완성
+autoload -U compinit; compinit
+autoload -U +X bashcompinit && bashcompinit
+complete -o nospace -C terraform terraform
+
+# 별칭
+alias z='cd ~/work'
+alias k=kubectl
+alias tf="terraform"
+alias core="cd ~/stc/wave-autoscale-ai"
+alias tree='eza --tree'
+alias ls="eza --icons"
+
+# Warp 함수
+warp() {
+  if [[ $# -eq 0 || "$1" == "." ]]; then
+    # 인수가 없거나 현재 디렉토리인 경우
+    open -a "Warp" "$(pwd)"
+  elif [[ -d "$1" ]]; then
+    # 전달된 경로가 존재하는 디렉토리인 경우
+    open -a "Warp" "$1"
+  else
+    # 절대 경로로 변환하여 시도
+    local abs_path=$(realpath "$1" 2>/dev/null)
+    if [[ -d "$abs_path" ]]; then
+      open -a "Warp" "$abs_path"
+    else
+      echo "Error: Directory '$1' does not exist"
+      return 1
+    fi
+  fi
+}
+
+alias gs='gh auth switch'
