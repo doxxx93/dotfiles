@@ -14,7 +14,6 @@ export GPG_TTY=$(tty)
 # 툴 활성화 (한 번만!)
 eval "$(mise activate zsh)"
 eval "$(gh completion -s zsh)"
-eval "$(gh copilot alias -- zsh)"
 
 # 플러그인
 source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
@@ -55,3 +54,8 @@ warp() {
 }
 
 alias gs='gh auth switch'
+
+# opencode
+export PATH=/Users/stclab/.opencode/bin:$PATH
+export ENABLE_LSP_TOOL=1
+
