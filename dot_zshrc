@@ -10,6 +10,8 @@ export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 # 환경변수
 export LC_ALL=en_US.UTF-8
 export GPG_TTY=$(tty)
+export HOMEBREW_CLEANUP_MAX_AGE_DAYS=0
+export HOMEBREW_AUTOREMOVE=1
 
 # 툴 활성화 (한 번만!)
 eval "$(mise activate zsh)"
