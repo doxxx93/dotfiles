@@ -1,3 +1,6 @@
+[settings]
+experimental = true
+
 [tools]
 aws-cli = { version = "latest", symlink_bins = "true" }
 aws-sam-cli = { version = "latest", symlink_bins = "true" }
@@ -22,7 +25,7 @@ ripgrep = "latest"
 eza = "latest"
 fzf = "latest"
 tinymist = "latest"
-gh = "latest"
+gh = { version = "latest", postinstall = "git config --global --replace-all credential.'https://github.com'.helper '!$HOME/.local/share/mise/shims/gh auth git-credential' && git config --global --replace-all credential.'https://gist.github.com'.helper '!$HOME/.local/share/mise/shims/gh auth git-credential'" }
 duckdb = "latest"
 typst = "latest"
 chezmoi = "latest"
@@ -31,3 +34,6 @@ terraform = "latest"
 uv = "latest"
 node = "22.14.0"
 just = "latest"
+kubeconform = "latest"
+gcloud = "latest"
+wrangler = "latest"

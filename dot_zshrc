@@ -16,6 +16,7 @@ export HOMEBREW_AUTOREMOVE=1
 # 툴 활성화 (한 번만!)
 eval "$(mise activate zsh)"
 eval "$(gh completion -s zsh)"
+eval "$(tailscale completion zsh)"
 
 # 플러그인
 source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
@@ -32,6 +33,7 @@ alias z='cd ~/work'
 alias k=kubectl
 alias tf="terraform"
 alias core="cd ~/stc/wave-autoscale-ai"
+alias vault='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/doxxx'
 alias tree='eza --tree'
 alias ls="eza --icons"
 
@@ -61,3 +63,6 @@ alias gs='gh auth switch'
 export PATH=/Users/stclab/.opencode/bin:$PATH
 export ENABLE_LSP_TOOL=1
 
+
+# Auto-Warpify
+[[ "$-" == *i* ]] && printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh", "uname": "Darwin", "tmux": false }}�' 
