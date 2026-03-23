@@ -23,3 +23,5 @@
 	helper = !$HOME/.local/share/mise/shims/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !$HOME/.local/share/mise/shims/gh auth git-credential
+[core]
+	excludesFile = /Users/stclab/.gitignore_global

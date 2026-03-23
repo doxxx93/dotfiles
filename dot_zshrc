@@ -66,3 +66,6 @@ export ENABLE_LSP_TOOL=1
 
 # Auto-Warpify
 [[ "$-" == *i* ]] && printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh", "uname": "Darwin", "tmux": false }}�' 
+
+# Jira API credentials
+[ -f ~/.config/jira/.env ] && source ~/.config/jira/.env
