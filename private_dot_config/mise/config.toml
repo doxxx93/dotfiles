@@ -3,18 +3,14 @@ experimental = true
 
 [tools]
 aws-cli = { version = "latest", symlink_bins = "true" }
-aws-sam-cli = { version = "latest", symlink_bins = "true" }
 go = "latest"
 zig = "latest"
 bun = "latest"
 argocd = "latest"
 helm = "latest"
-minikube = "latest"
 k9s = "latest"
 kubectl = "latest"
 eksctl = "latest"
-k6 = "latest"
-istioctl = "latest"
 krew = "latest"
 kubectx = "latest"
 kind = "latest"
