@@ -3,7 +3,6 @@ tap "homebrew/bundle"
 
 # Formulae
 brew "coreutils"
-brew "ffmpeg"
 brew "git"
 brew "gnupg"
 brew "libgit2"
