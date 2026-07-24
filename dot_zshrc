@@ -4,27 +4,20 @@ ZSH_THEME="miloshadzic"
 plugins=(git)
 source $ZSH/oh-my-zsh.sh
 
-# PATH 설정
-export PATH="$HOME/.local/bin:$PATH"
-export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
-# 환경변수
-export LC_ALL=en_US.UTF-8
+# GPG_TTY만 여기 유지 — tty는 대화형 셸마다 달라 매번 재평가 필요 (나머지 env/PATH는 .zshenv/.zprofile)
 export GPG_TTY=$(tty)
-export HOMEBREW_CLEANUP_MAX_AGE_DAYS=0
-export HOMEBREW_AUTOREMOVE=1
 
-# 툴 활성화 (한 번만!)
+# 툴 활성화
 eval "$(mise activate zsh)"
-eval "$(gh completion -s zsh)"
-eval "$(tailscale completion zsh)"
+# gh/tailscale 완성은 공식 권장대로 ~/.oh-my-zsh/custom/completions/_gh, _tailscale 로 fpath에 배치됨
+# (compinit이 lazy-load — 매 시작 eval 대신). 툴 업그레이드 후 재생성: gh completion -s zsh > ...
 
 # 플러그인
 source /opt/homebrew/opt/zsh-fast-syntax-highlighting/share/zsh-fast-syntax-highlighting/fast-syntax-highlighting.plugin.zsh
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-# 자동완성
-autoload -U compinit; compinit
+# 자동완성 (compinit은 oh-my-zsh.sh가 캐시와 함께 이미 실행함 — 중복 호출 금지)
 autoload -U +X bashcompinit && bashcompinit
 complete -o nospace -C terraform terraform
 
@@ -32,10 +25,9 @@ complete -o nospace -C terraform terraform
 alias z='cd ~/work'
 alias k=kubectl
 alias tf="terraform"
-alias core="cd ~/stc/wave-autoscale-ai"
 alias vault='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/doxxx'
 alias tree='eza --tree'
-alias ls="eza --icons"
+alias ls="eza --icons=auto"
 
 # Warp 함수
 warp() {
@@ -59,13 +51,16 @@ warp() {
 
 alias gs='gh auth switch'
 
-# opencode
-export PATH=/Users/stclab/.opencode/bin:$PATH
-export ENABLE_LSP_TOOL=1
-
-
 # Auto-Warpify
 [[ "$-" == *i* ]] && printf 'P$f{"hook": "SourcedRcFileForWarp", "value": { "shell": "zsh", "uname": "Darwin", "tmux": false }}�' 
 
 # Jira API credentials
 [ -f ~/.config/jira/.env ] && source ~/.config/jira/.env
+
+# Upgrade brew + mise in parallel, then clean up
+up() {
+  brew update && brew upgrade -y && brew cleanup --prune=all &
+  mise upgrade && mise prune -y &
+  wait
+  echo "✅ brew + mise up to date"
+}

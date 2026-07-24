@@ -1,35 +1,27 @@
 [settings]
 experimental = true
+idiomatic_version_file_enable_tools = ["node"]
 
 [tools]
 aws-cli = { version = "latest", symlink_bins = "true" }
 go = "latest"
 zig = "latest"
 bun = "latest"
-argocd = "latest"
-helm = "latest"
-k9s = "latest"
-kubectl = "latest"
-eksctl = "latest"
-krew = "latest"
-kubectx = "latest"
-kind = "latest"
 jq = "latest"
 bat = "latest"
 yq = "latest"
 ripgrep = "latest"
-eza = "latest"
 fzf = "latest"
 tinymist = "latest"
 gh = { version = "latest", postinstall = "git config --global --replace-all credential.'https://github.com'.helper '!$HOME/.local/share/mise/shims/gh auth git-credential' && git config --global --replace-all credential.'https://gist.github.com'.helper '!$HOME/.local/share/mise/shims/gh auth git-credential'" }
-duckdb = "latest"
 typst = "latest"
 chezmoi = "latest"
-act = "latest"
 terraform = "latest"
 uv = "latest"
-node = "22.14.0"
+node = "24.14.0"
 just = "latest"
-kubeconform = "latest"
-gcloud = "latest"
 wrangler = "latest"
+ast-grep = "latest"
+fd = "latest"
+
+[env]

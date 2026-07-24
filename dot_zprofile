@@ -1,9 +1,12 @@
-
 eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# 사용자 PATH (로그인당 1회 — 중첩 대화형 셸에서 재-prepend 안 되게 .zshrc에서 이동)
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="${KREW_ROOT:-$HOME/.krew}/bin:$PATH"
 
 
 # Added by Toolbox App
-export PATH="$PATH:/Users/stclab/Library/Application Support/JetBrains/Toolbox/scripts"
+export PATH="$PATH:/Users/doxxx/Library/Application Support/JetBrains/Toolbox/scripts"
 
 
 # Added by OrbStack: command-line tools and integration
