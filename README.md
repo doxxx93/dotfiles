@@ -24,7 +24,7 @@ mise install
 - `mise/config.toml` - CLI development tools (go, node, kubectl, terraform, etc.)
 
 ### Apps
-- `karabiner/karabiner.json` - Keyboard remapping (caps_lock → f19)
+- `Library/LaunchAgents/com.doxxx.capslock-f19.plist` - Keyboard remapping (caps_lock → f19) via hidutil
 - `zed/settings.json` - Zed editor settings
 
 ### macOS Setup
