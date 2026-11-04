@@ -29,7 +29,7 @@ complete -o nospace -C terraform terraform
 alias z='cd ~/work'
 alias k=kubectl
 alias tf="terraform"
-alias vault='cd ~/Library/Mobile\ Documents/iCloud~md~obsidian/Documents/doxxx'
+alias vault='cd ~/personal/vault'
 alias tree='eza --tree'
 alias ls="eza --icons=auto"
 
@@ -63,8 +63,14 @@ alias gs='gh auth switch'
 
 # Upgrade brew + mise in parallel, then clean up
 up() {
+  local brew_pid mise_pid failed=0
   brew update && brew upgrade -y && brew cleanup --prune=all &
+  brew_pid=$!
   mise upgrade && mise prune -y &
-  wait
+  mise_pid=$!
+  wait "$brew_pid" || { echo "❌ brew failed" >&2; failed=1; }
+  wait "$mise_pid" || { echo "❌ mise failed" >&2; failed=1; }
+  (( failed == 0 )) || return 1
   echo "✅ brew + mise up to date"
 }
+export PATH="/opt/homebrew/opt/mysql-client/bin:$PATH"
