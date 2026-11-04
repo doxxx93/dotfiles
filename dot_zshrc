@@ -9,6 +9,10 @@ export GPG_TTY=$(tty)
 
 # 툴 활성화
 eval "$(mise activate zsh)"
+
+# GitHub MCP가 Bearer 헤더로 읽는 env. 값은 keyring의 gh 토큰에서 매번 가져옴 (평문 저장 안 함)
+# ponytail: `gs`로 계정 전환 시 새 셸부터 반영. 즉시 필요하면 이 줄만 재실행
+export GITHUB_PERSONAL_ACCESS_TOKEN=$(gh auth token 2>/dev/null)
 # gh/tailscale 완성은 공식 권장대로 ~/.oh-my-zsh/custom/completions/_gh, _tailscale 로 fpath에 배치됨
 # (compinit이 lazy-load — 매 시작 eval 대신). 툴 업그레이드 후 재생성: gh completion -s zsh > ...
 
