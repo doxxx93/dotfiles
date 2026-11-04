@@ -23,5 +23,12 @@ just = "latest"
 wrangler = "latest"
 ast-grep = "latest"
 fd = "latest"
+grpcurl = "latest"
+java = "temurin-25"
+gradle = "8"
+"cargo:cargo-deny" = "latest"
+"cargo:cargo-hack" = "latest"
 
 [env]
+# gcloud no longer supports the system Python 3.9
+CLOUDSDK_PYTHON = "{{env.HOME}}/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12"
