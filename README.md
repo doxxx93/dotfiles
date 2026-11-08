@@ -24,7 +24,8 @@ mise install
 - `mise/config.toml` - CLI development tools (go, node, kubectl, terraform, etc.)
 
 ### Apps
-- `Library/LaunchAgents/com.doxxx.capslock-f19.plist` - Keyboard remapping (caps_lock → f19) via hidutil
+- `Library/LaunchAgents/com.doxxx.capslock-f19.plist` - Keyboard remapping (caps_lock → f19) via hidutil; `.macos` binds F19 to "Select next input source"
+- `Library/KeyBindings/DefaultKeyBinding.dict` - Type ` instead of ₩ in the Korean input source (relaunch apps to apply)
 - `zed/settings.json` - Zed editor settings
 
 ### macOS Setup
