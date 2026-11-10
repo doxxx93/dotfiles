@@ -53,6 +53,13 @@ defaults write com.apple.screencapture location -string "${HOME}/Desktop"
 defaults write com.apple.screencapture type -string "png"
 
 ###############################################################################
+# Fonts                                                                       #
+###############################################################################
+
+# SF Mono ships inside Terminal.app only; install it for other apps (Zed, Warp, Orca)
+cp -n /System/Applications/Utilities/Terminal.app/Contents/Resources/Fonts/SF-Mono-*.otf "${HOME}/Library/Fonts/" 2>/dev/null
+
+###############################################################################
 # Restart affected applications                                               #
 ###############################################################################
 

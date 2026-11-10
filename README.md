@@ -27,6 +27,7 @@ mise install
 - `Library/LaunchAgents/com.doxxx.capslock-f19.plist` - Keyboard remapping (caps_lock → f19) via hidutil; `.macos` binds F19 to "Select next input source"
 - `Library/KeyBindings/DefaultKeyBinding.dict` - Type ` instead of ₩ in the Korean input source (relaunch apps to apply)
 - `zed/settings.json` - Zed editor settings
+- `.warp/themes/` - Base16 Google light/dark themes for Warp; Orca imports them via its "Import from Warp" terminal theme option
 
 ### macOS Setup
 - `Brewfile` - Homebrew formulae and casks
