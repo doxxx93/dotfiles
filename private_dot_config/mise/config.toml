@@ -18,7 +18,7 @@ typst = "latest"
 chezmoi = "latest"
 terraform = "latest"
 uv = "latest"
-python = "3.12"
+python = "3.14"
 node = "24"
 just = "latest"
 wrangler = "latest"
@@ -31,4 +31,4 @@ java = "temurin-25"
 
 [env]
 # gcloud no longer supports the system Python 3.9
-CLOUDSDK_PYTHON = "{{env.HOME}}/.local/share/uv/python/cpython-3.12-macos-aarch64-none/bin/python3.12"
+CLOUDSDK_PYTHON = "{{env.HOME}}/.local/share/uv/python/cpython-3.14-macos-aarch64-none/bin/python3.14"
