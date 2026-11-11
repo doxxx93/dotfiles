@@ -16,6 +16,7 @@
     "git_status": true
   },
   "git_panel": {
+    "dock": "right",
     "tree_view": true
   },
   "agent": {
@@ -43,7 +44,11 @@
   "buffer_font_size": 13,
   "buffer_font_weight": 400,
   "buffer_line_height": { "custom": 1.2 },
+  "project_panel": {
+    "dock": "right"
+  },
   "terminal": {
+    "dock": "bottom",
     "font_family": "SF Mono",
     "font_fallbacks": ["Symbols Nerd Font Mono"],
     "font_size": 13,
